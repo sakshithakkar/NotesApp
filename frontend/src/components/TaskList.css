@@ -1,0 +1,44 @@
+.task-grid {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+/* Alternate pastel backgrounds */
+.task-grid li:nth-child(4n + 1) {
+    background-color: #fae0eda6;
+    /* pastel pink */
+}
+
+.task-grid li:nth-child(4n + 2) {
+    background-color: #e1eefacf;
+    /* pastel blue */
+}
+
+.task-grid li:nth-child(4n + 3) {
+    background-color:#e6fae6;
+    /* pastel green */
+}
+
+.task-grid li:nth-child(4n + 4) {
+    background-color: #fff4e0d4;
+    /* pastel yellow */
+}
+
+/* Common styling for tasks */
+.task-grid li {
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.task-grid li:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

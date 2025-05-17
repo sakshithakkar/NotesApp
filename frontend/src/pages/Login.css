@@ -1,0 +1,78 @@
+/* Center the login box */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+}
+
+/* Style the form */
+.login-form {
+    background-color: #fff;
+    padding: 30px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.login-form input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.login-form button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+/* Disabled state */
+.login-form button:disabled {
+    background-color: #c0c0c0;
+    cursor: not-allowed;
+    opacity: 0.75;
+}
+
+.error-text {
+    color: red;
+    font-size: 14px;
+    margin-top: -12px;
+    margin-bottom: -8px;
+}
+
+.register-link {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}

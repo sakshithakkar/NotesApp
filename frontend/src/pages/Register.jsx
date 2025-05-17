@@ -1,0 +1,59 @@
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import API from '../services/api';
+import './Login.css'; // reuse same CSS
+
+const Register = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [touched, setTouched] = useState({ email: false, password: false });
+  const navigate = useNavigate();
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    await API.post('/auth/register', { email, password });
+    navigate('/login');
+  };
+
+  const isFormValid = email.trim() !== '' && password.trim() !== '';
+
+  return (
+    <div className="login-container">
+      <form className="login-form" onSubmit={handleRegister}>
+        <h2>Register</h2>
+
+        <input
+          type="email"
+          placeholder="Email *"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
+          required
+        />
+        {touched.email && email.trim() === '' && (
+          <p className="error-text">Email is required</p>
+        )}
+
+        <input
+          type="password"
+          placeholder="Password *"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          onBlur={() => setTouched((prev) => ({ ...prev, password: true }))}
+          required
+        />
+        {touched.password && password.trim() === '' && (
+          <p className="error-text">Password is required</p>
+        )}
+
+        <button type="submit" disabled={!isFormValid}>Register</button>
+
+        <div className="register-link">
+          Already have an account? <Link to="/login">Login</Link>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default Register;
