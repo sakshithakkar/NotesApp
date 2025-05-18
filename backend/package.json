@@ -1,7 +1,7 @@
 {
   "name": "backend",
-  "version": "1.0.0",
-  "versioncomment": "Backend APIs for todo app",
+  "version": "1.0.1",
+  "versioncomment": "Added error handling for taskController",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
