@@ -1,8 +1,8 @@
 {
   "name": "frontend",
   "private": true,
-  "version": "1.0.1",
-  "versioncomment": "Added eye icon for login & register and added toaster messages",
+  "version": "1.0.2",
+  "versioncomment": "Added email pattern validation",
   "type": "module",
   "scripts": {
     "dev": "vite",

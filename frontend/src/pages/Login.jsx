@@ -12,23 +12,24 @@ const Login = () => {
     const [touched, setTouched] = useState({ email: false, password: false });
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+    const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
             const res = await API.post('/auth/login', { email, password });
-            if(res.status == 200) {
+            if (res.status == 200) {
                 toast.success('Login successful!');
                 localStorage.setItem('userEmail', email); // store email locally
                 setToken(res.data.token);
                 navigate('/');
-            } 
-        } catch(err) {
-            toast.error(err?.response?.data?.message  || 'Try again later!');
+            }
+        } catch (err) {
+            toast.error(err?.response?.data?.message || 'Try again later!');
         }
     };
 
-    const isFormValid = email.trim() !== '' && password.trim() !== '';
+    const isFormValid = email.trim() !== '' && isValidEmail(email) && password.trim() !== '';
 
     return (
         <div className="login-container">
@@ -44,6 +45,9 @@ const Login = () => {
                 />
                 {touched.email && email.trim() === '' && (
                     <p className="error-text">Email is required</p>
+                )}
+                {touched.email && email.trim() !== '' && !isValidEmail(email) && (
+                    <p className="error-text">Invalid email format</p>
                 )}
                 <div className="password-wrapper">
                     <input

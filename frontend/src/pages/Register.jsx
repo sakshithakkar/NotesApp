@@ -11,6 +11,7 @@ const Register = () => {
     const [touched, setTouched] = useState({ email: false, password: false });
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+    const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -25,7 +26,7 @@ const Register = () => {
         }
     };
 
-    const isFormValid = email.trim() !== '' && password.trim() !== '';
+    const isFormValid = email.trim() !== '' && isValidEmail(email) && password.trim() !== '';
 
     return (
         <div className="login-container">
@@ -42,6 +43,10 @@ const Register = () => {
                 />
                 {touched.email && email.trim() === '' && (
                     <p className="error-text">Email is required</p>
+                )}
+
+                {touched.email && email.trim() !== '' && !isValidEmail(email) && (
+                    <p className="error-text">Invalid email format</p>
                 )}
 
                 <div className="password-wrapper">
