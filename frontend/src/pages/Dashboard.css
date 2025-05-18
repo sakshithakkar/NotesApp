@@ -61,3 +61,10 @@ body {
     background-color: #f9f9f9;
 }
 
+.loader {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+  }
+  
