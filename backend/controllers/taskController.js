@@ -1,6 +1,7 @@
 const Task = require('../models/Task');
 const statusCodes = require('http-status-codes').StatusCodes;
 
+// Get all tasks for the logged-in user
 exports.getTasks = async (req, res) => {
   try {
     const tasks = await Task.find({ userId: req.user.id });
@@ -10,6 +11,7 @@ exports.getTasks = async (req, res) => {
   }
 };
 
+// Create a new task for the logged-in user
 exports.createTask = async (req, res) => {
   try {
     const task = new Task({ ...req.body, userId: req.user.id });
@@ -20,6 +22,7 @@ exports.createTask = async (req, res) => {
   }
 };
 
+// Update an existing task belonging to the logged-in user
 exports.updateTask = async (req, res) => {
   try {
     const task = await Task.findOneAndUpdate(
@@ -36,6 +39,7 @@ exports.updateTask = async (req, res) => {
   }
 };
 
+// Delete a task belonging to the logged-in user
 exports.deleteTask = async (req, res) => {
   try {
     const result = await Task.findOneAndDelete({ _id: req.params.id, userId: req.user.id });

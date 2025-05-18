@@ -3,9 +3,11 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const statusCodes = require('http-status-codes').StatusCodes
 
+// Register a new user
 exports.register = async (req, res) => {
   const { email, password } = req.body;
   try {
+    // Check if user with this email already exists
     const exists = await User.findOne({ email });
     if (exists) return res.status(400).json({ message: 'User already exists' });
 
@@ -17,6 +19,7 @@ exports.register = async (req, res) => {
   }
 };
 
+// Login existing user
 exports.login = async (req, res) => {
   const { email, password } = req.body;
   try {
