@@ -36,39 +36,45 @@ This is a full-stack Todo application built using the MERN stack (MongoDB, Expre
 
 ### 1. Clone the Repository
 
-
+```
 - git clone https://github.com/sakshithakkar/NotesApp.git
 - cd todo-app
+```
 
 ---
 
 ## Setup Backend
 
+```
 - cd backend
 - npm install
 - npm start
+```
 
 ## Setup Frontend
 
+```
 - cd ../frontend
 - npm install
 - npm run dev
-
+```
 
 ## API Endpoints (Protected with JWT)
 Auth (/api/auth)
 
-POST /register
-POST /login
+- POST /register
+
+- POST /login
 
 Tasks (/api/tasks)
-GET / - List tasks
 
-POST / - Create task
+- GET / - List tasks
 
-PUT /:id - Update task
+- POST / - Create task
 
-DELETE /:id - Delete task
+- PUT /:id - Update task
+
+- DELETE /:id - Delete task
 
 ## Contributors
 
