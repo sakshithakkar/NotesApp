@@ -1,9 +1,10 @@
 import { FaCheckCircle, FaRegCircle, FaTrashAlt } from 'react-icons/fa';
 import API from '../services/api';
 import './TaskItem.css';
+import { toast } from 'react-toastify';
 
-const TaskItem = ({ task, onUpdate, index  }) => {
-    const pastelColors = ['#fae0eda6', '#e1eefacf', '#e6fae6', '#fff4e0d4',  '#FFE4E1', '#E0FFFF', '#FFDDEE', '#DDEEFF', '#DDFFDD', '#FFF3DD',];
+const TaskItem = ({ task, onUpdate, index }) => {
+  const pastelColors = ['#fae0eda6', '#e1eefacf', '#e6fae6', '#fff4e0d4', '#FFE4E1', '#E0FFFF', '#FFDDEE', '#DDEEFF', '#DDFFDD', '#FFF3DD',];
   // Pick color based on index but offset by 1 to avoid repeating the first color at 5th item
   const color = pastelColors[(index + 2) % pastelColors.length];
   const toggleComplete = async () => {
@@ -12,8 +13,15 @@ const TaskItem = ({ task, onUpdate, index  }) => {
   };
 
   const deleteTask = async () => {
-    await API.delete(`/tasks/${task._id}`);
-    onUpdate();
+    try {
+      const res = await API.delete(`/tasks/${task._id}`);
+      if(res?.status == 200) {
+        toast.success(res?.data?.message || 'Task Deleted!');
+        onUpdate();
+      }
+    } catch (err) {
+      toast.error(err?.response?.data?.message || 'Try again later!');
+    }
   };
 
   return (

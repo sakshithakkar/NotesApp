@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import API from '../services/api';
 import './TaskForm.css';
+import { toast } from 'react-toastify';
 
 const TaskForm = ({ onAdd }) => {
     const [name, setName] = useState('');
@@ -8,9 +9,16 @@ const TaskForm = ({ onAdd }) => {
     const addTask = async (e) => {
         e.preventDefault();
         if (!name.trim()) return;
-        await API.post('/tasks', { name });
-        setName('');
-        onAdd();
+        try {
+            const res = await API.post('/tasks', { name });
+            if(res.status == 201) {
+                toast.success(res?.data?.message || 'Task Added!');
+                setName('');
+                onAdd();
+            }
+        } catch (err) {
+            toast.error(err?.response?.data?.message || 'Try again later!');
+        }
     };
 
     return (
