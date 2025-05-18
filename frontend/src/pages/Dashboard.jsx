@@ -39,13 +39,13 @@ const Dashboard = () => {
                 <h1>My Notes</h1>
                 <div className="dashboard-right">
                     <span className="welcome-msg">Welcome {userEmail}, Add your tasks and stay organized today ✨</span>
-                    <button className="logout-btn" onClick={handleLogout}>Logout</button>
+                    <div className="logout-btn" onClick={handleLogout}>Logout</div>
                 </div>
             </header>
 
             <main className="dashboard-main">
                 {loading ? (
-                    <div className="loader">Loading tasks...</div> // <-- loader UI
+                    <div className="loader">Loading tasks...</div> 
                 ) : (
                     <>
                         <TaskForm onAdd={fetchTasks} />

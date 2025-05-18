@@ -11,7 +11,7 @@ const SessionExpired = () => {
     }, 3000); // 3 seconds
 
     return () => clearTimeout(timer);
-  }, [navigate]);
+  }, []);
 
   return (
     <div className="session-expired-container">

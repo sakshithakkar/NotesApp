@@ -19,7 +19,7 @@
 }
 
 .task-grid li:nth-child(4n + 3) {
-    background-color:#e6fae6;
+    background-color: #e6fae6;
     /* pastel green */
 }
 
@@ -41,4 +41,13 @@
 
 .task-grid li:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.no-tasks-msg {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 2rem;
+    font-weight: 500;
+    opacity: 0.9;
 }

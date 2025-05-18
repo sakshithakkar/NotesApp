@@ -1,8 +1,8 @@
 {
   "name": "frontend",
   "private": true,
-  "version": "1.0.4",
-  "versioncomment": "Added session expired page",
+  "version": "1.0.5",
+  "versioncomment": "Bug fixes and minor changes",
   "type": "module",
   "scripts": {
     "dev": "vite",

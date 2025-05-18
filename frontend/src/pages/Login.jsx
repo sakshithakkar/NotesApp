@@ -19,13 +19,10 @@ const Login = () => {
         try {
             const res = await API.post('/auth/login', { email, password });
             if (res.status == 200) {
-                setTimeout(() => {
-                    navigate('/', { replace: true }); // use replace
-                  }, 300);
+                setToken(res.data.token);
+                navigate('/');
                 toast.success('Login successful!');
                 localStorage.setItem('userEmail', email); // store email locally
-                setToken(res.data.token);
-           
             }
         } catch (err) {
             toast.error(err?.response?.data?.message || 'Try again later!');
