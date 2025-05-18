@@ -5,10 +5,10 @@ This is a full-stack Todo application built using the MERN stack (MongoDB, Expre
 ---
 
 ## 📁 Folder Structure
-
+```
 ├── backend # Express.js + MongoDB (Mongoose) + JWT Auth
 └── frontend # React.js frontend using Vite
-
+```
 
 ---
 
@@ -37,22 +37,22 @@ This is a full-stack Todo application built using the MERN stack (MongoDB, Expre
 ### 1. Clone the Repository
 
 
-git clone https://github.com/sakshithakkar/NotesApp.git
-cd todo-app
+- git clone https://github.com/sakshithakkar/NotesApp.git
+- cd todo-app
 
 ---
 
 ## Setup Backend
 
-cd backend
-npm install
-npm start
+- cd backend
+- npm install
+- npm start
 
 ## Setup Frontend
 
-cd ../frontend
-npm install
-npm run dev
+- cd ../frontend
+- npm install
+- npm run dev
 
 
 ## API Endpoints (Protected with JWT)
