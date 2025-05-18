@@ -1,8 +1,8 @@
 {
   "name": "frontend",
   "private": true,
-  "version": "1.0.3",
-  "versioncomment": "Added loading state in Dashboard",
+  "version": "1.0.4",
+  "versioncomment": "Added session expired page",
   "type": "module",
   "scripts": {
     "dev": "vite",

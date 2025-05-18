@@ -11,4 +11,17 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
+// Intercept 401 Unauthorized
+API.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem('token'); // optional: clean up
+      window.location.href = '/session-expired';
+    }
+    return Promise.reject(error);
+  }
+);
+
+
 export default API;

@@ -1,0 +1,14 @@
+.session-expired-container {
+    text-align: center;
+    margin-top: 100px;
+    font-family: sans-serif;
+}
+
+.session-expired-container h2 {
+    color: #cc0000;
+}
+
+.session-expired-container p {
+    font-size: 1.1rem;
+    color: #555;
+}
